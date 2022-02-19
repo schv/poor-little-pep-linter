@@ -1,0 +1,63 @@
+<h5>Description</h5>
+
+<p>To make sure your Python code is beautiful and consistently formatted, you should follow the PEP8 specification and best practices recommended by the Python community. This is not always easy, especially for beginners. Luckily, there are special tools called <strong>static code analyzers</strong> (pylint, flake8, and others) that automatically check that your code meets all the standards and recommendations. These tools don't execute your code but just analyze it and output all the issues they find.</p>
+
+<p>In this project, you will create a small static analyzer tool that finds some common stylistic mistakes in Python code. This way, you will familiarize yourself with the concept of static code analysis and improve your Python skills along the way.</p>
+
+<p>PEP8 requires that we should "limit all lines to a maximum of 79 characters", which is designed to make your code more readable. So let's first make a program that checks that code lines are not too long.</p>
+
+<h5>Objectives</h5>
+
+<p>In this stage, your program should read Python code from a specified file and perform a single check: the length of code lines should not exceed 79 characters.</p>
+
+<p>Note that:</p>
+
+<ol>
+	<li>The path to the file is obtained from standard input.</li>
+	<li>The general output format is:
+	<pre><code class="language-no-highlight">Line X: Code Message
+</code></pre>
+
+	<p>In the format:</p>
+
+	<ul>
+		<li>
+		<p><code class="language-python">X</code> is the number of the line where the issue was found. The count starts from one.</p>
+		</li>
+		<li>
+		<p><code class="language-python">Code</code> is the code of the discovered stylistic issue (like <code class="language-python">S001</code>).</p>
+		</li>
+		<li>
+		<p><code class="language-python">Message</code><strong> </strong>is a human-readable description of the issue (optional).</p>
+		</li>
+	</ul>
+
+	<p>For example:</p>
+
+	<pre><code class="language-no-highlight">Line 3: S001 Too long</code></pre>
+
+	<p>This format will be used throughout the project with some minor changes.</p>
+	</li>
+	<li>The order of the lines should always be first to last.</li>
+	<li>Your program can output another message instead of <code class="language-python">Too long</code>. The rest of the output must exactly match the provided example. In the code <code class="language-python">S001</code>, <code class="language-python">S</code> means a stylistic issue, and <code class="language-python">001</code> is the internal number of the issue.</li>
+</ol>
+
+<h5>Examples</h5>
+
+<p>Here is an example of the file's contents:</p>
+
+<pre><code class="language-python">print('What\'s your name?')
+name = input()
+print(f'Hello, {name}')  # here is an obvious comment: this prints a greeting with a name
+
+very_big_number = 11_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000
+print(very_big_number)
+</code></pre>
+
+<p>This code contains two long lines (&gt;79 characters): lines 3 and 5.</p>
+
+<p>Here is the expected output for the given example:</p>
+
+<pre><code class="language-no-highlight">Line 3: S001 Too long
+Line 5: S001 Too long
+</code></pre>

@@ -1,0 +1,103 @@
+<h5>Description</h5>
+
+<p>As many coders say, naming is one of the hardest things in programming. Good naming makes your code more readable and uniform. Names should also follow style guides. In Python, the basic requirement is using snake_case for function names and CamelCase for class names. Also, there should be only one space between the construction name and the object name. Checking these rules is the next feature that we need to implement.</p>
+
+<p>Check out the Python <a target="_blank" href="https://docs.python.org/3/howto/regex.html" rel="noopener noreferrer nofollow">tutorial about regular expressions</a>: they will help you implement the checks.</p>
+
+<h5>Objectives</h5>
+
+<p>In this stage, we need to add three new checks to the program:</p>
+
+<ul>
+	<li>
+	<p><code class="language-python">[S007]</code> Too many spaces after construction_name (def or class);</p>
+	</li>
+	<li>
+	<p><code class="language-python">[S008]</code> Class name class_name should be written in CamelCase;</p>
+	</li>
+	<li>
+	<p><code class="language-python">[S009]</code> Function name function_name should be written in snake_case.</p>
+	</li>
+</ul>
+
+<p>Note that:</p>
+
+<ol>
+	<li>
+	<p>Functions names may start and end with underscores (<code class="language-python">__fun</code>, <code class="language-python">__init__</code>).</p>
+	</li>
+	<li>
+	<p>To simplify the task, we will assume that classes are always written as in the following examples:</p>
+
+	<pre><code class="language-python"># a simple class
+class MyClass:
+    pass
+
+# a class based on inheritance
+class MyClass(AnotherClass):
+    pass
+</code></pre>
+
+	<p>In reality, it's possible to declare a class this way:</p>
+
+	<pre><code class="language-python">class \
+        S:
+    pass
+</code></pre>
+
+	<p>However, since it is not a common way to declare classes, you can ignore it.</p>
+	</li>
+	<li>
+	<p>Another assumption is that functions are always declared like this:</p>
+
+	<pre><code class="language-python">def do_magic():
+    pass
+</code></pre>
+	</li>
+</ol>
+
+<p> As before:</p>
+
+<ul>
+	<li>
+	<p>The program obtains the path to the file or directory via command-line arguments:</p>
+	</li>
+</ul>
+
+<pre><code class="language-no-highlight">&gt; python code_analyzer.py directory-or-file
+</code></pre>
+
+<ul>
+	<li>
+	<p>All the previously implemented checks should continue to work properly.</p>
+	</li>
+</ul>
+
+<h5>Examples</h5>
+
+<p>Here is an input example:</p>
+
+<pre><code class="language-python">class  Person:
+    pass
+
+class user:
+
+    def __init__(self, login: str, password: str):
+        self.login = login
+        self.password = password
+
+    @staticmethod
+    def _print1():
+        print('q')
+
+    @staticmethod
+    def Print2():
+        print('q')
+</code></pre>
+
+<p>The expected output for this code is:</p>
+
+<pre><code class="language-no-highlight">/path/to/file/script.py: Line 1: S007 Too many spaces after 'class'
+/path/to/file/script.py: Line 4: S008 Class name 'user' should use CamelCase
+/path/to/file/script.py: Line 15: S009 Function name 'Print2' should use snake_case
+</code></pre>

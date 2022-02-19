@@ -1,0 +1,81 @@
+<h5>Description</h5>
+
+<p>As a rule, real projects contain more than a single file. Also, project directories often contain not only Python files, and we don't need to check if an HTML file follows PEP8.</p>
+
+<p>We recommend that you check out a <a target="_blank" href="https://realpython.com/working-with-files-in-python/" rel="noopener noreferrer nofollow">tutorial on realpython.com</a> that can help you to work with files and directories.</p>
+
+<h5>Objectives</h5>
+
+<p>In this stage, you need to improve your program so that it can analyze all Python files inside a specified directory.</p>
+
+<p>Please note that:</p>
+
+<ol>
+	<li>
+	<p>You also need to change the input format. Instead of reading the path from the standard input, the program must obtain it as a command-line argument:</p>
+
+	<pre><code class="language-no-highlight">&gt; python code_analyzer.py directory-or-file
+</code></pre>
+	</li>
+	<li>
+	<p>The output format also needs to be changed slightly. It should include the path to the analyzed file:</p>
+
+	<pre><code class="language-no-highlight">Path: Line X: Code Message </code></pre>
+	</li>
+	<li>
+	<p>All output lines must be sorted in ascending order according to the file name, line number, and issue code.</p>
+	</li>
+	<li>
+	<p>Non-Python files must be skipped.</p>
+	</li>
+</ol>
+
+<p>Once again:</p>
+
+<ul>
+	<li>
+	<p>It is important that all the checks implemented in the previous stages continue to work properly.</p>
+	</li>
+	<li>
+	<p>If a line contains the same stylistic issue several times, your program must print the information only once. If a line has several issues with different types of error codes, they should be printed in ascending order.</p>
+	</li>
+	<li>
+	<p>To simplify the solution, we consider it acceptable if your program finds some false-positive stylistic issues in strings, especially in multi-lines (<code class="java">'''...'''</code> and <code class="java">"""..."""</code>).</p>
+	</li>
+	<li>
+	<p>We recommend that you break your program code into a set of functions and classes to avoid confusion.</p>
+	</li>
+</ul>
+
+<h5>Examples</h5>
+
+<ol>
+	<li>
+	<p>Only a single file is specified as the input:</p>
+
+	<pre><code class="language-no-highlight">&gt; python code_analyzer.py /path/to/file/script.py
+/path/to/file/script.py: Line 1: S004 At least two spaces required before inline comments
+/path/to/file/script.py: Line 2: S003 Unnecessary semicolon
+/path/to/file/script.py: Line 3: S001 Too long line
+/path/to/file/script.py: Line 3: S003 Unnecessary semicolon
+/path/to/file/script.py: Line 6: S001 Too long line
+/path/to/file/script.py: Line 11: S006 More than two blank lines used before this line
+/path/to/file/script.py: Line 13: S003 Unnecessary semicolon
+/path/to/file/script.py: Line 13: S004 At least two spaces required before inline comments
+/path/to/file/script.py: Line 13: S005 TODO found
+</code></pre>
+	</li>
+	<li>
+	<p>The input path is a directory; the output should contain all Python files from it:</p>
+
+	<pre><code class="language-no-highlight">&gt; python code_analyzer.py /path/to/project
+/path/to/project/__init__.py: Line 1: S001 Too long line
+/path/to/project/script1.py: Line 1: S004 At least two spaces required before inline comments
+/path/to/project/script1.py: Line 2: S003 Unnecessary semicolon
+/path/to/project/script2.py: Line 1: S004 At least two spaces required before inline comments
+/path/to/project/script2.py: Line 3: S001 Too long line
+/path/to/project/somedir/script.py: Line 3: S001 Too long line
+/path/to/project/test.py: Line 3: Line 13: S003 Unnecessary semicolon
+</code></pre>
+	</li>
+</ol>

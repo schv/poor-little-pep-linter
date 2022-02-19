@@ -1,0 +1,88 @@
+<h5>Description</h5>
+
+<p>Let's add a few more checks to the program. All of them are consistent with the PEP8 style guide.</p>
+
+<h5>Objectives</h5>
+
+<p>In this stage, you need to add checks for the following five errors to your program:</p>
+
+<ul>
+	<li>
+	<p><code class="language-python">[S002]</code> Indentation is not a multiple of four;</p>
+	</li>
+	<li>
+	<p><code class="language-python">[S003]</code> Unnecessary semicolon after a statement (note that semicolons are acceptable in comments);</p>
+	</li>
+	<li>
+	<p><code class="language-python">[S004]</code> Less than two spaces before inline comments;</p>
+	</li>
+	<li>
+	<p><code class="language-python">[S005]</code> TODO found (in comments only and case-insensitive);</p>
+	</li>
+	<li>
+	<p><code class="language-python">[S006]</code> More than two blank lines preceding a code line (applies to the first non-empty line).</p>
+	</li>
+</ul>
+
+<p>Please note that:</p>
+
+<ol>
+	<li>
+	<p>If a line contains the same stylistic issue several times, your program should print the information only once. However, if a single line has several issues with different types of error codes, they should be printed as a sorted list.</p>
+	</li>
+	<li>
+	<p>To simplify the task, we consider it acceptable if your program finds some false-positive stylistic issues in strings, especially in multi-lines (<code class="language-python">'''...'''</code> and <code class="language-python">"""..."""</code>).</p>
+	</li>
+	<li>
+	<p>We recommend that you break your code into a set of functions to avoid confusion.</p>
+	</li>
+</ol>
+
+<p>Once again:</p>
+
+<ul>
+	<li>
+	<p>The path to the file with Python code is obtained from standard input.</p>
+	</li>
+	<li>
+	<p>The general output format is:</p>
+	</li>
+</ul>
+
+<pre><code class="language-python">Line X: Code Message</code></pre>
+
+<ul>
+	<li>The lines with found issues must be output in ascending order.</li>
+</ul>
+
+<h5>Examples</h5>
+
+<p>Here is an example of badly styled Python code (please never write code like this!):</p>
+
+<pre><code class="language-python">print('What\'s your name?') # reading an input
+name = input();
+print(f'Hello, {name}');  # here is an obvious comment: this prints a greeting with a name
+
+
+very_big_number = 11_000_000_000_000_000_000_000_000_000_000_000_000_000_000_000
+print(very_big_number)
+
+
+
+def some_fun():
+    print('NO TODO HERE;;')
+    pass; # Todo something
+</code></pre>
+
+<p>It contains nine code style issues:</p>
+
+<pre><code class="language-no-highlight">Line 1: S004 At least two spaces required before inline comments
+Line 2: S003 Unnecessary semicolon
+Line 3: S001 Too long
+Line 3: S003 Unnecessary semicolon
+Line 6: S001 Too long
+Line 11: S006 More than two blank lines used before this line
+Line 13: S003 Unnecessary semicolon
+Line 13: S004 At least two spaces required before inline comments
+Line 13: S005 TODO found
+</code></pre>
